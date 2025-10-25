@@ -96,7 +96,7 @@ Stay connected with family and caregivers.
 
 ### 6. 💬 AI Help Assistant
 Your personal guide to using the app.
-<div align="center"> <img src=help-assistant.jpg" alt="AI Help Assistant" width="300"> </div>
+<div align="center"> <img src= "help-assistant.jpg" alt="AI Help Assistant" width="300"> </div>
 
 - **24/7 Availability**: Help anytime, anywhere
 - **Natural Conversations**: Ask questions in plain language

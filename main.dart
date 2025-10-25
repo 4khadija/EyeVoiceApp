@@ -32,7 +32,8 @@ class EyeVoiceApp extends StatelessWidget {
             backgroundColor: kSoftBlue,
             foregroundColor: Colors.black87,
             padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
         ),
@@ -57,10 +58,10 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 1800),
-    )..forward();
+    _controller =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 1800))
+          ..forward();
+
     _scale = CurvedAnimation(parent: _controller, curve: Curves.elasticOut);
     _fade = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
 
@@ -113,6 +114,7 @@ class _SplashScreenState extends State<SplashScreen>
 class AnimatedGradientBackground extends StatefulWidget {
   final Widget child;
   const AnimatedGradientBackground({required this.child});
+
   @override
   State<AnimatedGradientBackground> createState() =>
       _AnimatedGradientBackgroundState();
@@ -170,25 +172,30 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<Offset> _offset1, _offset2, _offset3, _offset4, _offset5, _offset6;
+  late Animation<Offset> _offset1,
+      _offset2,
+      _offset3,
+      _offset4,
+      _offset5,
+      _offset6;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 900));
-    _offset1 = Tween<Offset>(begin: Offset(-1.0, 0), end: Offset.zero)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
-    _offset2 = Tween<Offset>(begin: Offset(1.0, 0), end: Offset.zero)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
-    _offset3 = Tween<Offset>(begin: Offset(-1.0, 0), end: Offset.zero)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
-    _offset4 = Tween<Offset>(begin: Offset(1.0, 0), end: Offset.zero)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
-    _offset5 = Tween<Offset>(begin: Offset(-1.0, 0), end: Offset.zero)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
-    _offset6 = Tween<Offset>(begin: Offset(0.0, 1.0), end: Offset.zero)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
+    _controller =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 900));
+    _offset1 = Tween<Offset>(begin: Offset(-1.0, 0), end: Offset.zero).animate(
+        CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
+    _offset2 = Tween<Offset>(begin: Offset(1.0, 0), end: Offset.zero).animate(
+        CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
+    _offset3 = Tween<Offset>(begin: Offset(-1.0, 0), end: Offset.zero).animate(
+        CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
+    _offset4 = Tween<Offset>(begin: Offset(1.0, 0), end: Offset.zero).animate(
+        CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
+    _offset5 = Tween<Offset>(begin: Offset(-1.0, 0), end: Offset.zero).animate(
+        CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
+    _offset6 = Tween<Offset>(begin: Offset(0.0, 1.0), end: Offset.zero).animate(
+        CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
     _controller.forward();
   }
 
@@ -298,22 +305,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   title: "Visit Website",
                   description: "Learn more about EyeVoice online",
                   onTap: () async {
-                    final Uri websiteUrl = Uri.parse('https://jolly-monstera-18c267.netlify.app/');
+                    final Uri websiteUrl =
+                        Uri.parse('https://jolly-monstera-18c267.netlify.app/');
                     try {
-                      // For web/Zapp environment
                       html.window.open(websiteUrl.toString(), '_blank');
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text("Opening EyeVoice website...")),
                       );
                     } catch (e) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Website: https://jolly-monstera-18c267.netlify.app/")),
+                        SnackBar(
+                            content: Text(
+                                "Website: https://jolly-monstera-18c267.netlify.app/")),
                       );
                     }
                   },
                 ),
               ),
-              SizedBox(height: 80), // Space for floating button
+              SizedBox(height: 80),
             ],
           ),
         ),
@@ -383,17 +392,13 @@ class _VisualSimplifierPageState extends State<VisualSimplifierPage> {
 
   Future<void> _scanAndSimplify() async {
     setState(() => _isProcessing = true);
-
     await Future.delayed(Duration(seconds: 2));
-
     String mockText = """
 The comprehensive documentation indicates that individuals 
 should utilize appropriate assistance to obtain necessary 
 information about the program.
 """;
-
     String simplified = _simplifyText(mockText);
-
     setState(() {
       _recognizedText = "Original:\n$mockText\n\nSimplified:\n$simplified";
       _isProcessing = false;
@@ -617,8 +622,8 @@ class _VoiceAssistantPageState extends State<VoiceAssistantPage> {
                       borderRadius: BorderRadius.circular(16)),
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.9),
-                  contentPadding: EdgeInsets.symmetric(
-                      horizontal: 16, vertical: 14),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                 ),
                 maxLines: 3,
                 style: TextStyle(fontSize: 16),
@@ -756,7 +761,8 @@ class _TimedReadingPageState extends State<TimedReadingPage> {
                 controller: _textController,
                 decoration: InputDecoration(
                   hintText: "Paste your text here to read at your pace...",
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16)),
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.9),
                 ),
@@ -846,6 +852,10 @@ class _SummarizerPageState extends State<SummarizerPage> {
   String _summary = "";
   bool _isProcessing = false;
 
+  bool _isSpeaking = false;
+  bool _isPaused = false;
+  html.SpeechSynthesisUtterance? _utterance;
+
   void _summarizeText() async {
     if (_textController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -858,7 +868,6 @@ class _SummarizerPageState extends State<SummarizerPage> {
 
     await Future.delayed(Duration(seconds: 2));
 
-    // Simple extractive summarization (mock)
     String fullText = _textController.text;
     List<String> sentences = fullText
         .split(RegExp(r'[.!?]+'))
@@ -866,7 +875,6 @@ class _SummarizerPageState extends State<SummarizerPage> {
         .map((s) => s.trim())
         .toList();
 
-    // Take first and last sentence as summary (simple mock)
     String summary = sentences.length > 2
         ? "${sentences.first}. ... ${sentences.last}."
         : fullText;
@@ -887,24 +895,62 @@ class _SummarizerPageState extends State<SummarizerPage> {
       );
       return;
     }
+    if (_isSpeaking && !_isPaused) return;
 
-    try {
-      final utterance = html.SpeechSynthesisUtterance(_summary);
-      utterance.lang = 'en-US';
-      utterance.rate = 0.9;
-      utterance.pitch = 1.0;
-      utterance.volume = 1.0;
+    _utterance = html.SpeechSynthesisUtterance(_summary);
+    _utterance!.lang = 'en-US';
+    _utterance!.rate = 0.9;
+    _utterance!.pitch = 1.0;
+    _utterance!.volume = 1.0;
 
-      html.window.speechSynthesis!.speak(utterance);
+    _utterance!.onEnd.listen((event) {
+      setState(() {
+        _isSpeaking = false;
+        _isPaused = false;
+      });
+    });
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Reading summary aloud...")),
-      );
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Speech not supported in this browser.")),
-      );
+    html.window.speechSynthesis!.speak(_utterance!);
+
+    setState(() {
+      _isSpeaking = true;
+      _isPaused = false;
+    });
+  }
+
+  void _pauseSpeech() {
+    if (_isSpeaking && !_isPaused) {
+      html.window.speechSynthesis!.pause();
+      setState(() {
+        _isPaused = true;
+      });
     }
+  }
+
+  void _resumeSpeech() {
+    if (_isSpeaking && _isPaused) {
+      html.window.speechSynthesis!.resume();
+      setState(() {
+        _isPaused = false;
+      });
+    }
+  }
+
+  void _stopSpeech() {
+    if (_isSpeaking) {
+      html.window.speechSynthesis!.cancel();
+      setState(() {
+        _isSpeaking = false;
+        _isPaused = false;
+      });
+    }
+  }
+
+  void _restartSpeech() {
+    _stopSpeech();
+    Future.delayed(Duration(milliseconds: 200), () {
+      _speakSummary();
+    });
   }
 
   @override
@@ -920,27 +966,60 @@ class _SummarizerPageState extends State<SummarizerPage> {
                 controller: _textController,
                 decoration: InputDecoration(
                   hintText: "Paste long text here to get a summary...",
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16)),
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.9),
                 ),
                 maxLines: 8,
               ),
               SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton.icon(
-                    icon: Icon(Icons.summarize),
-                    label: Text("Summarize"),
-                    onPressed: _summarizeText,
-                  ),
-                  ElevatedButton.icon(
-                    icon: Icon(Icons.volume_up),
-                    label: Text("Speak"),
-                    onPressed: _summary.isNotEmpty ? _speakSummary : null,
-                  ),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    ElevatedButton.icon(
+                      icon: Icon(Icons.summarize),
+                      label: Text("Summarize"),
+                      onPressed: _summarizeText,
+                    ),
+                    SizedBox(width: 8),
+                    ElevatedButton.icon(
+                      icon: Icon(Icons.volume_up),
+                      label: Text("Speak"),
+                      onPressed:
+                          (_summary.isNotEmpty && !_isSpeaking) ? _speakSummary : null,
+                    ),
+                    SizedBox(width: 8),
+                    ElevatedButton.icon(
+                      icon: Icon(Icons.pause),
+                      label: Text("Pause"),
+                      onPressed: (_isSpeaking && !_isPaused) ? _pauseSpeech : null,
+                    ),
+                    SizedBox(width: 8),
+                    ElevatedButton.icon(
+                      icon: Icon(Icons.play_arrow),
+                      label: Text("Resume"),
+                      onPressed: (_isSpeaking && _isPaused) ? _resumeSpeech : null,
+                    ),
+                    SizedBox(width: 8),
+                    ElevatedButton.icon(
+                      icon: Icon(Icons.stop),
+                      label: Text("Stop"),
+                      onPressed: _isSpeaking ? _stopSpeech : null,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red.shade300,
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    ElevatedButton.icon(
+                      icon: Icon(Icons.restart_alt),
+                      label: Text("Restart"),
+                      onPressed:
+                          (_summary.isNotEmpty && _isSpeaking) ? _restartSpeech : null,
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 24),
               if (_isProcessing)
@@ -976,261 +1055,17 @@ class ChatbotPage extends StatefulWidget {
 }
 
 class _ChatbotPageState extends State<ChatbotPage> {
-  final List<ChatMessage> _messages = [];
-  final TextEditingController _textController = TextEditingController();
-  final ScrollController _scrollController = ScrollController();
-
-  @override
-  void initState() {
-    super.initState();
-    _addBotMessage(
-      "👋 Hi! I'm your EyeVoice assistant. I'm here to help you navigate the app!\n\n"
-      "You can ask me about:\n"
-      "• Visual Simplifier\n"
-      "• Companion Mode\n"
-      "• Voice Assistant\n"
-      "• Timed Reading\n"
-      "• Smart Summarizer\n\n"
-      "What would you like to know?"
-    );
-  }
-
-  void _addBotMessage(String text) {
-    setState(() {
-      _messages.add(ChatMessage(text: text, isUser: false));
-    });
-    _scrollToBottom();
-  }
-
-  void _addUserMessage(String text) {
-    setState(() {
-      _messages.add(ChatMessage(text: text, isUser: true));
-    });
-    _scrollToBottom();
-  }
-
-  void _scrollToBottom() {
-    Future.delayed(Duration(milliseconds: 100), () {
-      if (_scrollController.hasClients) {
-        _scrollController.animateTo(
-          _scrollController.position.maxScrollExtent,
-          duration: Duration(milliseconds: 300),
-          curve: Curves.easeOut,
-        );
-      }
-    });
-  }
-
-  void _handleSubmitted(String text) {
-    _textController.clear();
-    if (text.trim().isEmpty) return;
-
-    _addUserMessage(text);
-
-    Future.delayed(Duration(milliseconds: 500), () {
-      String response = _getResponse(text.toLowerCase());
-      _addBotMessage(response);
-    });
-  }
-
-  String _getResponse(String input) {
-    if (input.contains('visual') || input.contains('simplif') || input.contains('scan')) {
-      return "📸 Visual Simplifier:\n\nThis feature helps you read printed text!\n\n"
-          "1. Tap 'Visual Simplifier' on the home screen\n"
-          "2. Click 'Scan Text' to capture text\n"
-          "3. The app will simplify complex words\n"
-          "4. Listen to the simplified version\n\n"
-          "Perfect for reading documents with easier words!";
-    } else if (input.contains('companion') || input.contains('caregiver')) {
-      return "👥 Companion Mode:\n\nConnect with your caregiver or family!\n\n"
-          "1. Go to 'Companion Mode'\n"
-          "2. Link accounts together\n"
-          "3. Share reminders and alerts\n"
-          "4. Caregivers can monitor your activity\n\n"
-          "Great for staying connected with loved ones!";
-    } else if (input.contains('voice') || input.contains('speak') || input.contains('assistant')) {
-      return "🎙️ Voice Assistant:\n\nSpeak or type to hear text read aloud!\n\n"
-          "1. Tap the microphone to speak\n"
-          "2. Or type text in the box\n"
-          "3. Click 'Read Aloud' to hear it\n"
-          "4. Adjust speed and volume as needed\n\n"
-          "Helpful for reading text hands-free!";
-    } else if (input.contains('timed') || input.contains('reading') || input.contains('pace')) {
-      return "⏱️ Timed Reading Assistant:\n\nRead at your own pace!\n\n"
-          "1. Paste or type your text\n"
-          "2. Click 'Load Text'\n"
-          "3. Use Play/Pause/Stop controls\n"
-          "4. It reads sentence by sentence\n\n"
-          "Perfect for studying and comprehension!";
-    } else if (input.contains('summar') || input.contains('condense')) {
-      return "📝 Smart Summarizer:\n\nGet quick summaries of long text!\n\n"
-          "1. Paste your long text\n"
-          "2. Click 'Summarize'\n"
-          "3. Get key points instantly\n"
-          "4. Save time and focus better\n\n"
-          "Great for articles and documents!";
-    } else if (input.contains('help') || input.contains('how') || input.contains('use')) {
-      return "ℹ️ Here's what EyeVoice can do:\n\n"
-          "🔹 Visual Simplifier - Read & simplify text\n"
-          "🔹 Companion Mode - Connect with caregivers\n"
-          "🔹 Voice Assistant - Text-to-speech\n"
-          "🔹 Timed Reading - Read at your pace\n"
-          "🔹 Smart Summarizer - Quick summaries\n\n"
-          "Just ask me about any feature!";
-    } else if (input.contains('thank') || input.contains('thanks')) {
-      return "😊 You're welcome! I'm here anytime you need help. Feel free to ask me anything!";
-    } else if (input.contains('hello') || input.contains('hi')) {
-      return "👋 Hello! How can I help you today?";
-    } else {
-      return "🤔 I'm not sure about that, but I can help you with:\n\n"
-          "• Visual Simplifier\n"
-          "• Companion Mode\n"
-          "• Voice Assistant\n"
-          "• Timed Reading\n"
-          "• Smart Summarizer\n\n"
-          "What would you like to know?";
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Help Assistant"),
-        backgroundColor: kSoftBlue,
+        title: Text("Help Chatbot"),
       ),
-      body: AnimatedGradientBackground(
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                controller: _scrollController,
-                padding: EdgeInsets.all(16),
-                itemCount: _messages.length,
-                itemBuilder: (context, index) {
-                  return _ChatBubble(message: _messages[index]);
-                },
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 4,
-                    offset: Offset(0, -2),
-                  ),
-                ],
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(12),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextField(
-                        controller: _textController,
-                        decoration: InputDecoration(
-                          hintText: "Ask me anything...",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(24),
-                          ),
-                          filled: true,
-                          fillColor: Colors.grey[100],
-                          contentPadding: EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 12,
-                          ),
-                        ),
-                        onSubmitted: _handleSubmitted,
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    CircleAvatar(
-                      backgroundColor: kSoftBlue,
-                      child: IconButton(
-                        icon: Icon(Icons.send, color: Colors.white),
-                        onPressed: () => _handleSubmitted(_textController.text),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
+      body: Center(
+        child: Text(
+          "Chatbot functionality coming soon.",
+          style: TextStyle(fontSize: 18),
         ),
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _textController.dispose();
-    _scrollController.dispose();
-    super.dispose();
-  }
-}
-
-class ChatMessage {
-  final String text;
-  final bool isUser;
-  ChatMessage({required this.text, required this.isUser});
-}
-
-class _ChatBubble extends StatelessWidget {
-  final ChatMessage message;
-  const _ChatBubble({required this.message});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        mainAxisAlignment:
-            message.isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (!message.isUser)
-            CircleAvatar(
-              backgroundColor: kSoftBlue,
-              child: Icon(Icons.support_agent, color: Colors.white, size: 20),
-              radius: 16,
-            ),
-          if (!message.isUser) SizedBox(width: 8),
-          Flexible(
-            child: Container(
-              padding: EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: message.isUser
-                    ? kSoftBlue.withOpacity(0.8)
-                    : Colors.white,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 4,
-                    offset: Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: Text(
-                message.text,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: message.isUser ? Colors.white : Colors.black87,
-                  height: 1.4,
-                ),
-              ),
-            ),
-          ),
-          if (message.isUser) SizedBox(width: 8),
-          if (message.isUser)
-            CircleAvatar(
-              backgroundColor: Colors.grey[300],
-              child: Icon(Icons.person, color: Colors.grey[700], size: 20),
-              radius: 16,
-            ),
-        ],
       ),
     );
   }

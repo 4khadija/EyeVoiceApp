@@ -14,6 +14,8 @@
 
 EyeVoice is a comprehensive mobile app that transforms how people with dyslexia and reading challenges interact with text. Using OCR, AI, and text-to-speech technology, it simplifies reading and makes information accessible to everyone.
 
+<div align="center"> <img src="screenshots/home-screen.jpg" alt="EyeVoice Home Screen" width="300"> <p><em>EyeVoice Home Screen - All accessibility tools in one place</em></p> </div>
+
 ### ✨ Key Highlights
 
 - 📸 **Scan & Simplify** any printed text instantly
@@ -29,6 +31,7 @@ EyeVoice is a comprehensive mobile app that transforms how people with dyslexia 
 
 ### 1. 📸 Visual Simplifier
 Transform complex text into simple, easy-to-read content.
+<div align="center"> <img src="screenshots/visual-simplifier.jpg" alt="Visual Simplifier Feature" width="300"> </div>
 
 - **OCR Text Scanning**: Point your camera at any text
 - **Word Simplification**: "comprehensive" → "complete", "utilize" → "use"
@@ -41,6 +44,7 @@ Transform complex text into simple, easy-to-read content.
 
 ### 2. 🎙️ Voice Assistant
 Speak or type, and hear it back in natural-sounding speech.
+<div align="center"> <img src="screenshots/voice-assistant.jpg" alt="Voice Assistant Feature" width="300"> </div>
 
 - **Text-to-Speech**: Natural voice reads any text aloud
 - **Speech-to-Text**: Speak instead of typing
@@ -53,6 +57,7 @@ Speak or type, and hear it back in natural-sounding speech.
 
 ### 3. ⏱️ Timed Reading Assistant
 Read long text sentence-by-sentence at your own pace.
+<div align="center"> <img src="screenshots/timed-reading.jpg" alt="Timed Reading Assistant" width="300"> </div>
 
 - **Pause Between Sentences**: Take breaks as needed
 - **Progress Tracking**: Remember where you stopped
@@ -65,6 +70,7 @@ Read long text sentence-by-sentence at your own pace.
 
 ### 4. 📝 Smart Context Summarizer
 Get the main points without reading everything.
+<div align="center"> <img src="screenshots/smart-summarizer.jpg" alt="Smart Summarizer Feature" width="300"> </div>
 
 - **Auto-Summarization**: Condense long passages
 - **Key Points**: Extract important information
@@ -77,6 +83,7 @@ Get the main points without reading everything.
 
 ### 5. 👥 Companion Mode
 Stay connected with family and caregivers.
+<div align="center"> <img src="screenshots/companion-mode.jpg" alt="Companion Mode Feature" width="300"> </div>
 
 - **Link Accounts**: Connect with family members
 - **Share Alerts**: Send reminders and notifications
@@ -89,6 +96,7 @@ Stay connected with family and caregivers.
 
 ### 6. 💬 AI Help Assistant
 Your personal guide to using the app.
+<div align="center"> <img src="screenshots/help-assistant.jpg" alt="AI Help Assistant" width="300"> </div>
 
 - **24/7 Availability**: Help anytime, anywhere
 - **Natural Conversations**: Ask questions in plain language

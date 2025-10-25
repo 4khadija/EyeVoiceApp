@@ -2,12 +2,9 @@
 
 <div align="center">
 
-![EyeVoice Banner](https://img.shields.io/badge/EyeVoice-Accessibility%20App-6B73FF?style=for-the-badge)
-![Flutter](https://img.shields.io/badge/Flutter-3.16+-02569B?style=for-the-badge&logo=flutter)
-
 **An AI-powered accessibility app designed for dyslexic users and anyone with reading difficulties.**
 
-[🌐 Live Website](https://jolly-monstera-18c267.netlify.app/) • [📱 Try Demo](https://zruc060xrud0.zapp.page/#/) • [📖 Documentation](#features)
+[🌐 Live Website](https://jolly-monstera-18c267.netlify.app/) • [📱 Try Demo](https://zruc060xrud0.zapp.page/#/) 
 
 </div>
 
@@ -116,9 +113,9 @@ Your personal guide to using the app.
 - **Privacy First**: All processing happens on your device
 
 ### Real Impact
-> *"I used to struggle with reading menus and signs. Now I just scan them with EyeVoice and understand instantly!"* - Sarah, 16
+> *"I used to struggle with reading menus and signs. Now I just scan them with EyeVoice and understand instantly!"* - Agher, 82
 
-> *"As a teacher, I recommend this to all my dyslexic students. It's a game-changer."* - Mr. Johnson, Special Ed Teacher
+> *"As a doctor, I recommend this to all my dyslexic patients. It's a game-changer."* - Dr Zehra
 
 ---
 
@@ -199,7 +196,7 @@ Coming soon on Google Play Store!
 
 ## 🤝 Contributing
 
-We welcome contributions! Here's how you can help:
+I welcome contributions! Here's how you can help:
 
 1. **Report Bugs**: Open an issue with details
 2. **Suggest Features**: Share your ideas
@@ -226,29 +223,6 @@ git push origin feature/amazing-feature
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- **Flutter Team**: For the amazing framework
-- **Dyslexia Community**: For feedback and testing
-- **Open Source Contributors**: For libraries and tools
-- **Accessibility Experts**: For guidance and best practices
-
----
-
-## 📞 Contact & Support
-
-- **Website**: [https://jolly-monstera-18c267.netlify.app/](https://jolly-monstera-18c267.netlify.app/)
-- **GitHub Issues**: [Report a bug](https://github.com/4khadija/eyevoice/issues)
-- **Email**: support@eyevoice.app (coming soon)
-
----
-
 ## 🗺️ Roadmap
 
 ### Coming Soon
@@ -265,15 +239,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Audiobook creation from documents
 - [ ] Collaborative reading sessions
 - [ ] Browser extension
-
----
-
-## 📊 Project Stats
-
-![GitHub stars](https://img.shields.io/github/stars/4khadija/eyevoice?style=social)
-![GitHub forks](https://img.shields.io/github/forks/4khadija/eyevoice?style=social)
-![GitHub issues](https://img.shields.io/github/issues/4khadija/eyevoice)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/4khadija/eyevoice)
 
 ---
 

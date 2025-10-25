@@ -4,11 +4,10 @@
 
 ![EyeVoice Banner](https://img.shields.io/badge/EyeVoice-Accessibility%20App-6B73FF?style=for-the-badge)
 ![Flutter](https://img.shields.io/badge/Flutter-3.16+-02569B?style=for-the-badge&logo=flutter)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 **An AI-powered accessibility app designed for dyslexic users and anyone with reading difficulties.**
 
-[🌐 Live Website](https://jolly-monstera-18c267.netlify.app/) • [📱 Try Demo](https://zapp.run) • [📖 Documentation](#features)
+[🌐 Live Website](https://jolly-monstera-18c267.netlify.app/) • [📱 Try Demo](https://zruc060xrud0.zapp.page/#/) • [📖 Documentation](#features)
 
 </div>
 

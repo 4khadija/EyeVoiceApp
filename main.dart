@@ -292,28 +292,27 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
               SizedBox(height: 16),
               SlideTransition(
-  position: _offset6,
-  child: FeatureButton(
-    icon: Icons.link,
-    title: "Visit Website",
-    description: "Learn more about EyeVoice online",
-    onTap: () async {
-      final Uri websiteUrl = Uri.parse('https://jolly-monstera-18c267.netlify.app/');
-      try {
-        // For web/Zapp environment
-        html.window.open(websiteUrl.toString(), '_blank');
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Opening EyeVoice website...")),
-        );
-      } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Website: https://jolly-monstera-18c267.netlify.app/")),
-        );
-      }
-    },
-  ),
-),
-
+                position: _offset6,
+                child: FeatureButton(
+                  icon: Icons.link,
+                  title: "Visit Website",
+                  description: "Learn more about EyeVoice online",
+                  onTap: () async {
+                    final Uri websiteUrl = Uri.parse('https://jolly-monstera-18c267.netlify.app/');
+                    try {
+                      // For web/Zapp environment
+                      html.window.open(websiteUrl.toString(), '_blank');
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Opening EyeVoice website...")),
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Website: https://jolly-monstera-18c267.netlify.app/")),
+                      );
+                    }
+                  },
+                ),
+              ),
               SizedBox(height: 80), // Space for floating button
             ],
           ),
@@ -384,17 +383,17 @@ class _VisualSimplifierPageState extends State<VisualSimplifierPage> {
 
   Future<void> _scanAndSimplify() async {
     setState(() => _isProcessing = true);
-    
+
     await Future.delayed(Duration(seconds: 2));
-    
+
     String mockText = """
 The comprehensive documentation indicates that individuals 
 should utilize appropriate assistance to obtain necessary 
 information about the program.
 """;
-    
+
     String simplified = _simplifyText(mockText);
-    
+
     setState(() {
       _recognizedText = "Original:\n$mockText\n\nSimplified:\n$simplified";
       _isProcessing = false;
@@ -561,11 +560,11 @@ class _VoiceAssistantPageState extends State<VoiceAssistantPage> {
       utterance.pitch = 1.0;
       utterance.volume = 1.0;
       utterance.lang = 'en-US';
-      
+
       html.window.speechSynthesis!.speak(utterance);
-      
+
       await Future.delayed(Duration(seconds: _controller.text.length ~/ 10 + 2));
-      
+
       setState(() => _isSpeaking = false);
     } catch (e) {
       setState(() => _isSpeaking = false);
@@ -626,7 +625,7 @@ class _VoiceAssistantPageState extends State<VoiceAssistantPage> {
               ),
               SizedBox(height: 20),
               ElevatedButton.icon(
-                icon: _isSpeaking 
+                icon: _isSpeaking
                     ? SizedBox(
                         width: 20,
                         height: 20,
@@ -699,18 +698,18 @@ class _TimedReadingPageState extends State<TimedReadingPage> {
     if (!_isReading || _isPaused || _currentIndex >= _sentences.length) return;
 
     String sentence = _sentences[_currentIndex];
-    
+
     try {
       final utterance = html.SpeechSynthesisUtterance(sentence);
       utterance.rate = 0.8;
       utterance.pitch = 1.0;
       utterance.volume = 1.0;
       utterance.lang = 'en-US';
-      
+
       html.window.speechSynthesis!.speak(utterance);
-      
+
       await Future.delayed(Duration(seconds: sentence.length ~/ 8 + 2));
-      
+
       if (mounted && _isReading && !_isPaused) {
         setState(() => _currentIndex++);
         if (_currentIndex < _sentences.length) {
@@ -856,9 +855,9 @@ class _SummarizerPageState extends State<SummarizerPage> {
     }
 
     setState(() => _isProcessing = true);
-    
+
     await Future.delayed(Duration(seconds: 2));
-    
+
     // Simple extractive summarization (mock)
     String fullText = _textController.text;
     List<String> sentences = fullText
@@ -866,12 +865,12 @@ class _SummarizerPageState extends State<SummarizerPage> {
         .where((s) => s.trim().isNotEmpty)
         .map((s) => s.trim())
         .toList();
-    
+
     // Take first and last sentence as summary (simple mock)
     String summary = sentences.length > 2
         ? "${sentences.first}. ... ${sentences.last}."
         : fullText;
-    
+
     setState(() {
       _summary = "📝 Summary:\n\n$summary\n\n✨ Key Points:\n"
           "• ${sentences.length} sentences total\n"
@@ -879,6 +878,33 @@ class _SummarizerPageState extends State<SummarizerPage> {
           "• Main ideas captured";
       _isProcessing = false;
     });
+  }
+
+  void _speakSummary() {
+    if (_summary.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("No summary to read!")),
+      );
+      return;
+    }
+
+    try {
+      final utterance = html.SpeechSynthesisUtterance(_summary);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.9;
+      utterance.pitch = 1.0;
+      utterance.volume = 1.0;
+
+      html.window.speechSynthesis!.speak(utterance);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Reading summary aloud...")),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Speech not supported in this browser.")),
+      );
+    }
   }
 
   @override
@@ -901,10 +927,20 @@ class _SummarizerPageState extends State<SummarizerPage> {
                 maxLines: 8,
               ),
               SizedBox(height: 16),
-              ElevatedButton.icon(
-                icon: Icon(Icons.summarize),
-                label: Text("Summarize"),
-                onPressed: _summarizeText,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton.icon(
+                    icon: Icon(Icons.summarize),
+                    label: Text("Summarize"),
+                    onPressed: _summarizeText,
+                  ),
+                  ElevatedButton.icon(
+                    icon: Icon(Icons.volume_up),
+                    label: Text("Speak"),
+                    onPressed: _summary.isNotEmpty ? _speakSummary : null,
+                  ),
+                ],
               ),
               SizedBox(height: 24),
               if (_isProcessing)
